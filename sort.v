@@ -3,11 +3,14 @@ module sort #(
     parameter SIZE     = 8
 )(  input  wire clk,
     input  wire [NUM_VALS*SIZE-1:0] in,
-    output reg  [NUM_VALS*SIZE-1:0] out
+    output reg  [NUM_VALS*SIZE-1:0] out,
+	 output reg   [8-1:0] median
+	 
 );
     reg [NUM_VALS*SIZE-1:0] sorted_bus;
     always @(posedge clk) begin
         out <= sorted_bus;
+		  median <= sorted_bus[4];
     end
 
     integer i, j;

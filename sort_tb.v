@@ -1,12 +1,13 @@
 module sort_tb;
     reg clk;
-    reg  [16-1:0] in1,  in2,  in3,  in4,  in5 , in6 , in7, in8, in9;
-    wire [16-1:0] out1, out2, out3, out4, out5 ,out6,out7,out8,out9;
+    reg  [8-1:0] in1,  in2,  in3,  in4,  in5 , in6 , in7, in8, in9;
+    wire [8-1:0] out1, out2, out3, out4, out5 ,out6,out7,out8,out9,median;
 
-    sort #(.NUM_VALS(9), .SIZE(16)) dut (
+    sort #(.NUM_VALS(9), .SIZE(8)) dut (
         .clk(clk),
         .in ({in1,  in2,  in3,  in4,  in5 , in6 , in7, in8, in9}),
-        .out({out1, out2, out3, out4, out5,out6,out7,out8,out9})
+        .out({out1, out2, out3, out4, out5,out6,out7,out8,out9}),
+		  .median({median})
     );
 
     always @(posedge clk) begin
@@ -23,7 +24,7 @@ module sort_tb;
 
     always @(posedge clk) begin
         $display("In:  %0d %0d %0d %0d %0d %0d %0d %0d %0d", in1,  in2,  in3,  in4,  in5, in6 , in7, in8, in9);
-        $display("Out: %0d %0d %0d %0d %0d %0d %0d %0d %0d", out1, out2, out3, out4, out5,out6,out7,out8,out9);
+        $display("Out: %0d %0d %0d %0d %0d %0d %0d %0d %0d %0d", out1, out2, out3, out4, out5,out6,out7,out8,out9,median);
     end
 
     initial begin
