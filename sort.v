@@ -1,3 +1,23 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    11:19:03 04/13/2021 
+// Design Name: 
+// Module Name:    sort 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
 module sort #(
     parameter NUM_VALS = 9,
     parameter SIZE     = 8
@@ -10,7 +30,7 @@ module sort #(
     reg [NUM_VALS*SIZE-1:0] sorted_bus;
     always @(posedge clk) begin
         out <= sorted_bus;
-		  median <= sorted_bus[4];
+		  median <= sorted_bus[39:32];
     end
 
     integer i, j;
